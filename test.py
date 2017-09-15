@@ -1,4 +1,7 @@
+import subprocess
+import os
 from unittest import TestCase
+
 
 from server import Server
 
@@ -10,8 +13,7 @@ class ServerUnitTest(TestCase):
 
     def test_room_description(self):
 
-        for i in range(4):
-            descriptions = self.server.room_description(i)
+        descriptions = [self.server.room_description(i) for i in range(4)]
 
         self.assertCountEqual(descriptions, set(descriptions))
 
@@ -20,3 +22,4 @@ class ServerUnitTest(TestCase):
         for phrase in ["OK!", "Whazzzzzup?", "African or European?"]:
             self.server.say(phrase)
             self.assertEqual("OK! " + phrase, self.server.output_buffer)
+
