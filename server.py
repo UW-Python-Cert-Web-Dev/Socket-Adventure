@@ -14,6 +14,8 @@ class Server(object):
     * self.output_buffer: a string that should be sent to the connected client; for
       testing purposes this string should NOT end in a newline character. When
       writing to the output_buffer, DON'T concatenate: just overwrite.
+    * self.done: a boolean flag that starts as TRUE and any class method can set
+      to FALSE to indicate that the client should be disconnected
     * self.room: one of 0, 1, 2, 3. This signifies which "room" the client is in,
       according to the following map:
       
